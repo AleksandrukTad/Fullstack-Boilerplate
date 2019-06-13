@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<DocumentFragment>
+  .c0 {
+  font-weight: bold;
+}
+
+<div>
+    Welcome to Next.js!
+    <div
+      class="c0"
+    >
+      Hello World
+    </div>
+  </div>
+</DocumentFragment>
+`;

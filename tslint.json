@@ -1,0 +1,27 @@
+{
+    "extends": [
+      "tslint:latest",
+      "tslint-react",
+      "tslint:recommended",
+      "tslint-plugin-prettier",
+      "tslint-config-prettier"
+    ],
+    "rules": {
+      "no-implicit-dependencies": [
+        true,
+        "dev",
+        [
+          "@/app"
+        ]
+      ],
+      "no-submodule-imports": [
+        true,
+        "@/app"
+      ],
+      "no-relative-imports": [
+        true,
+        "allow-siblings"
+      ],
+      "prettier": true
+    }
+  }
