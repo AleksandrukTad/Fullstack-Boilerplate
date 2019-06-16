@@ -65,8 +65,8 @@ class Avatar extends Component<IProps, IState> {
 
     return (
       <Button
-        onClick={this.selectAvatar}
-        onMouseEnter={() => (active ? onEnter(true) : this.onEnter(true))}
+        onClick={active ? () => onEnter(true) : this.selectAvatar}
+        onMouseEnter={() => (active ? null : this.onEnter(true))}
         onMouseLeave={() => (active ? null : this.onEnter(false))}
       >
         <Spinner loading={this.state.loading} />

@@ -9,7 +9,9 @@ interface IButtonProps extends React.Props<any> {
   height?: string;
   padding?: string;
   width?: string;
-  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {};
+  onClick: (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {} | void;
   onMouseEnter: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {};
   onMouseLeave: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {};
 }
