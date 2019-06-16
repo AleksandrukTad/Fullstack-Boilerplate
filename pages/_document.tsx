@@ -1,29 +1,27 @@
-import Document from 'next/document'
-import { ServerStyleSheet } from 'styled-components'
+import IDocument from "next/document";
+import * as Document from "next/document";
+import React from "react";
+// Import styled components ServerStyleSheet
+import { ServerStyleSheet } from "styled-components";
 
-export default class MyDocument extends Document {
-  static async getInitialProps (ctx) {
-    const sheet = new ServerStyleSheet()
-    const originalRenderPage = ctx.renderPage
+export default class MyDocument extends IDocument {
+  public static getInitialProps(props: any) {
+    const sheet = new ServerStyleSheet();
+    const page = props.renderPage((App: any) => (innerProps: any) =>
+      sheet.collectStyles(<App {...innerProps} />)
+    );
+    const styleTags = sheet.getStyleElement();
+    return { ...page, styleTags };
+  }
 
-    try {
-      ctx.renderPage = () =>
-        originalRenderPage({
-          enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
-        })
-
-      const initialProps = await Document.getInitialProps(ctx)
-      return {
-        ...initialProps,
-        styles: (
-          <>
-            {initialProps.styles}
-            {sheet.getStyleElement()}
-          </>
-        )
-      }
-    } finally {
-      sheet.seal()
-    }
+  public render() {
+    return (
+      <html>
+        <body>
+          <Document.Main />
+          <Document.NextScript />
+        </body>
+      </html>
+    );
   }
 }

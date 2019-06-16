@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  font-weight: bold;
+  position: relative;
+  display: flex;
+  justify-content: center;
 `;
